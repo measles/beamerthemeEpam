@@ -44,7 +44,7 @@
 
 \begin{frame}
     \frametitle{Same for itemized list}
-    And, of course, all that works fine with itemize list. Numbers after \lstinline[language=tex]{\\item} means slides of this particular frame.
+    And, of course, all that works fine with itemize list. Numbers after \lstinline[language=tex]{\\item} means slides of frame this particular list appears on.
     \begin{itemize}
 	\item<1-> First
 	\item<2-> Second
@@ -66,4 +66,26 @@
     \end{enumerate}
 \end{frame}
 
+\begin{frame}
+    \frametitle{Short notation}
+    But what if we need list items to appear one by one? Then, of course, it is possible to set number manually, but it's easier to use short notations:
+    \begin{columns}
+    \column{0.4\textwidth}
+	\begin{enumerate}
+	    \item<+-> First
+	    \item<+-> Second
+	    \item<+-> Third
+	    \item<+-> Fourth
+        \end{enumerate}
+    \column{0.4\textwidth}
+        \begin{itemize}[<+->]
+	    \item First
+	    \item Second
+	    \item Third
+	    \item Fourth
+        \end{itemize}
+    \end{columns}
+
+    ~\\~\\The lists will appear in the order they was described in frame code.
+\end{frame}
 \end{document}

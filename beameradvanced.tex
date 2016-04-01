@@ -1,0 +1,69 @@
+\input{common}
+\title[bash]{Продвинутый пример использования темплейта для beamer-презентации}
+\subtitle{Как управлять отображением элементов на слейде и рисовать в \LaTeX}
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame}{Table of contents}
+	\tableofcontents
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+%%%%%%%%%% Content starts here %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Overlay}
+\subsection{Pause}
+\begin{frame}{Pause frame on specified point}
+    This is the simplest way to control how single frame will be represented in slides: \lstinline[language=tex]{\\pause}\\~\\\pause
+
+    This single frame will produce series of slides. Each \lstinline[language=tex]{\\pause} command will indicates the end of the slide.\\~\\\pause
+
+    By the way, notice that indicated number for each slide of this series will have same value. This is not a slide number, actually, it's a frame number. 
+\end{frame}
+
+\subsection{Lists}
+\begin{frame}
+    \frametitle{List: appear one by one}
+    On this frame we'll make list items appear on following slides. Behold!
+    \begin{enumerate}
+	\item<1-> This one will appear first
+	\item<2-> Then goes this one
+	\item<3-> Next this one and the last one
+	\item<4-> Will appears with the next one
+	\item<4-> Going along with previous one
+	\item<3-> Last one, will appears on the same slide as a third one
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Same for itemized list}
+    And, of course, all that works fine with itemize list. Numbers means slides of this particular frame.
+    \begin{itemize}
+	\item<1-> First
+	\item<2-> Second
+	\item<3-> Third
+	\item<2-> Second
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Items: appear one specified slides}
+    On this frame we'll make list items appear on specified slides only. 
+    \begin{enumerate}
+	\item<1,3> This one will appears on first and third slides
+	\item<2,4-6> This one appears on the second and from forth till six one
+	\item<2,5-> This one will appear on second slide and than from the fifth till last one
+	\item<3-5> Will appears on slides from third till fifth one
+	\item<4-> From forth one on
+	\item<1,3,5> Will appears on slides one, three, five
+    \end{enumerate}
+\end{frame}
+
+\end{document}
